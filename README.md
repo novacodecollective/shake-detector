@@ -1,3 +1,3 @@
-# Earthquake Detector
+# Shake Detector
 
-Earthquake detector template app (POC)
+Shake detector template app, proof of concept for youth coding workshop
