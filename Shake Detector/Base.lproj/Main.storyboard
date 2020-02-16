@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7hX-wU-INR">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="veH-qZ-s5s">
+            <objects>
+                <navigationController id="7hX-wU-INR" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vOi-gl-cpO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="51e-H9-b8Q" kind="relationship" relationship="rootViewController" id="W9z-nn-Q6f"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ktU-75-NQZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1318" y="-74"/>
+        </scene>
+        <!--Measure-->
+        <scene sceneID="IPQ-m1-lDV">
+            <objects>
+                <viewController id="51e-H9-b8Q" customClass="MeasurementViewController" customModule="Shake_Detector" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" id="N7B-or-fuh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rxX-iM-Ovk" customClass="GraphView" customModule="Shake_Detector" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="xColor">
+                                        <color key="value" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="yColor">
+                                        <color key="value" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="zColor">
+                                        <color key="value" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="gridColor">
+                                        <color key="value" white="0.5" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="rxX-iM-Ovk" firstAttribute="leading" secondItem="v53-GX-ENE" secondAttribute="leading" id="3t0-Ay-L9J"/>
+                            <constraint firstItem="rxX-iM-Ovk" firstAttribute="bottom" secondItem="v53-GX-ENE" secondAttribute="bottom" id="STt-RT-auc"/>
+                            <constraint firstItem="rxX-iM-Ovk" firstAttribute="trailing" secondItem="v53-GX-ENE" secondAttribute="trailing" id="Xvj-fZ-ysb"/>
+                            <constraint firstItem="rxX-iM-Ovk" firstAttribute="top" secondItem="v53-GX-ENE" secondAttribute="top" id="g4j-Zj-Fgh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="v53-GX-ENE"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Measure" id="qW4-gf-UtR">
+                        <barButtonItem key="rightBarButtonItem" title="Start" id="8vP-aT-8JU">
+                            <connections>
+                                <action selector="startStopButtonTapped:" destination="51e-H9-b8Q" id="hog-Pb-SeC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="graphView" destination="rxX-iM-Ovk" id="5PV-We-9u5"/>
+                        <segue destination="W7y-JM-fLD" kind="show" identifier="Show Results" id="mss-Nu-5cV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zty-eU-nPc" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-594.375" y="-72.887323943661968"/>
+        </scene>
+        <!--Results-->
+        <scene sceneID="zYo-ge-TA0">
+            <objects>
+                <viewController id="W7y-JM-fLD" customClass="ResultsViewController" customModule="Shake_Detector" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hi1-fP-5u3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Peak Ground Acceleration" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXa-1h-uMQ">
+                                <rect key="frame" x="0.0" y="258.5" width="320" height="95.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="WXa-1h-uMQ" firstAttribute="centerY" secondItem="Dj6-qk-fcu" secondAttribute="centerY" id="CFx-b8-UaO"/>
+                            <constraint firstItem="Dj6-qk-fcu" firstAttribute="trailing" secondItem="WXa-1h-uMQ" secondAttribute="trailing" id="WmK-tn-6NF"/>
+                            <constraint firstItem="WXa-1h-uMQ" firstAttribute="leading" secondItem="Dj6-qk-fcu" secondAttribute="leading" id="tQE-I1-Wwm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Dj6-qk-fcu"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Results" id="c2M-2V-Rln"/>
+                    <connections>
+                        <outlet property="magnitudeLabel" destination="WXa-1h-uMQ" id="vBs-UW-JLx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vfS-bR-ijn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="154" y="-73"/>
+        </scene>
+    </scenes>
+</document>
