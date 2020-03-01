@@ -16,7 +16,7 @@ class GraphSegment: UIView {
     let lineColors: [UIColor]
     let gridColor: UIColor
 
-    private(set) var dataPoints = [Record]()
+    private(set) var dataPoints = Recording()
     private let startPoint: Record
     private let valueRanges: [ClosedRange<Double>]
     var gridLinePositions = [CGFloat]()

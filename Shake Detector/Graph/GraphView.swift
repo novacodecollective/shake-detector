@@ -17,17 +17,12 @@ class GraphView: UIScrollView {
     private var currentSegment: GraphSegment? { segments.last }
     private var valueRanges = [-4.0...4.0, -4.0...4.0, -4.0...4.0]
 
-    @IBInspectable
-    var xColor: UIColor = UIColor.red
-
-    @IBInspectable
-    var yColor: UIColor = UIColor.green
-
-    @IBInspectable
-    var zColor: UIColor = UIColor.blue
-
-    @IBInspectable
-    var gridColor: UIColor = UIColor(white: 0, alpha: 0.1)
+    @IBInspectable var xColor: UIColor = UIColor.red
+    @IBInspectable var yColor: UIColor = UIColor.green
+    @IBInspectable var zColor: UIColor = UIColor.blue
+    @IBInspectable var magnitudeColor: UIColor = UIColor(white: 0, alpha: 0.9)
+    @IBInspectable var gridColor: UIColor = UIColor(white: 0, alpha: 0.1)
+    @IBInspectable var separateAxis: Bool = false
 
     // MARK: Update methods
 
@@ -46,9 +41,37 @@ class GraphView: UIScrollView {
         currentSegment?.add(value)
     }
 
+    func add(_ recording: Recording) {
+        for record in recording {
+            add(record)
+        }
+    }
+
     func clear() {
         segments.forEach { $0.removeFromSuperview() }
         segments.removeAll(keepingCapacity: true)
+    }
+
+    override func draw(_ rect: CGRect) {
+        guard let context = UIGraphicsGetCurrentContext() else { return }
+
+        // Fill the background.
+        if let backgroundColor = backgroundColor?.cgColor {
+            context.setFillColor(backgroundColor)
+            context.fill(rect)
+        }
+
+        // Draw static lines.
+        context.drawGraphLines(in: frame.size, color: gridColor)
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        for subview in subviews {
+            if subview is GraphSegment {
+                subview.frame.size.height = frame.height
+            }
+        }
     }
 
     // MARK: Private convenience methods
@@ -68,7 +91,7 @@ class GraphView: UIScrollView {
         let segment = GraphSegment(
             startPoint: startPoint,
             valueRanges: valueRanges,
-            lineColors: [xColor, yColor, zColor],
+            lineColors: separateAxis ? [xColor, yColor, zColor] : [magnitudeColor, magnitudeColor, magnitudeColor],
             gridColor: gridColor
         )
         segments.append(segment)
