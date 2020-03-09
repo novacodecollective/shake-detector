@@ -9,31 +9,32 @@
 import UIKit
 
 class ResultsViewController: UIViewController {
+
+    // MARK: Properties
+
+    private let classifier = RecordingClassifier()
     var recording: Recording = Recording()
 
-    @IBOutlet weak var magnitudeLabel: UILabel!
     @IBOutlet weak var resultGraphView: GraphView!
-    @IBOutlet weak var scottsMillGraphView: GraphView!
-    @IBOutlet weak var losAngelesGraphView: GraphView!
-    @IBOutlet weak var tohokuGraphView: GraphView!
+    @IBOutlet weak var matchGraphView: GraphView!
+    @IBOutlet weak var matchLabel: UILabel!
+
+    // MARK: Life cycle events
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let peakGroundAcceleration = recording.peakAcceleration
+        resultGraphView.add(recording)
 
-        let numberFormatter = NumberFormatter()
-        numberFormatter.maximumFractionDigits = 2
-        numberFormatter.minimumFractionDigits = 1
-        numberFormatter.minimumIntegerDigits = 1
-
-        magnitudeLabel.text = numberFormatter.string(for: peakGroundAcceleration)
-
-        resultGraphView.add(recording.trimmed())
-        scottsMillGraphView.add(Recording(name: .scottsMill).trimmed())
-        losAngelesGraphView.add(Recording(name: .losAngeles).trimmed())
-        tohokuGraphView.add(Recording(name: .tohoku).trimmed())
+        if let bestMatch = classifier.bestMatch(for: recording) {
+            matchLabel.text = "Matches: \(bestMatch.classification.rawValue)"
+            matchGraphView.add(bestMatch.recording)
+        } else {
+            matchLabel.text = "No Match"
+        }
     }
+
+    // MARK: User interaction events
 
     @IBAction func saveResults(_ sender: UIBarButtonItem) {
         do {

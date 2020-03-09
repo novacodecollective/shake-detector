@@ -41,7 +41,7 @@ class GraphSegment: UIView {
     func add(_ value: Record) {
         guard dataPoints.count < GraphSegment.capacity else { return }
 
-        dataPoints.append(value)
+        dataPoints += value
         setNeedsDisplay()
     }
 
@@ -60,7 +60,7 @@ class GraphSegment: UIView {
         context.drawGraphLines(in: bounds.size, color: gridColor)
 
         // Plot lines for the 3 sets of values.
-        // context.setShouldAntialias(false)
+        context.setShouldAntialias(false)
         context.translateBy(x: 0, y: bounds.size.height / 2.0)
 
         for lineIndex in 0..<3 {

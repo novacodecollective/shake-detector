@@ -17,11 +17,11 @@ class MeasurementViewController: UIViewController {
     @IBOutlet weak var waveformView: WaveformView!
 
     private let motionManager = CMMotionManager()
-    private var recording: Recording = []
+    private var recording = Recording()
     private var isRecording: Bool = false
     private var measurementStartTime: TimeInterval?
 
-    private lazy var simulatorPlaybackRecording = Recording(name: .tohoku)
+    private lazy var simulatorPlaybackRecording = Recording[.tohoku][0]
     private var simulationFrame: Int = 0
     private var timer: Timer?
 
@@ -59,11 +59,12 @@ class MeasurementViewController: UIViewController {
             sender.title = "Start"
         } else {
             isRecording = true
-            recording.removeAll()
+            recording = Recording()
             startMeasuring()
             sender.title = "Stop"
         }
 
+        UIApplication.shared.isIdleTimerDisabled = isRecording
         sender.isEnabled = true
     }
 
@@ -132,7 +133,7 @@ class MeasurementViewController: UIViewController {
 
     private func add(record: Record) {
         if isRecording {
-            recording.append(record)
+            recording += record
             graphView.add(record)
         }
         waveformView.updateWithLevel(CGFloat(record.magnitude))

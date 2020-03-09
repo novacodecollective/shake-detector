@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7hX-wU-INR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="7hX-wU-INR">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,34 +21,100 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ktU-75-NQZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1318" y="-74"/>
+            <point key="canvasLocation" x="-863" y="-90"/>
         </scene>
         <!--Measure-->
         <scene sceneID="IPQ-m1-lDV">
             <objects>
-                <viewController id="51e-H9-b8Q" customClass="MeasurementViewController" customModule="Shake_Detector" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Measure" id="51e-H9-b8Q" customClass="MeasurementViewController" customModule="Shake_Detector" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FgX-Tl-jDX"/>
+                        <viewControllerLayoutGuide type="bottom" id="lr1-3u-h3n"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" id="N7B-or-fuh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2Np-N2-sh7">
-                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" bounces="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" id="rxX-iM-Ovk" customClass="GraphView" customModule="Shake_Detector" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="320" height="215"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="xColor">
+                                        <color key="value" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="yColor">
+                                        <color key="value" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="zColor">
+                                        <color key="value" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="gridColor">
+                                        <color key="value" white="0.5" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="separateAxis" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </scrollView>
+                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7Pj-Qc-wPC" customClass="WaveformView" customModule="Shake_Detector" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="287" width="320" height="281"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="waveColor">
+                                        <color key="value" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="numberOfWaves">
+                                        <integer key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Measure" id="qW4-gf-UtR">
+                        <barButtonItem key="rightBarButtonItem" title="Start" id="8vP-aT-8JU">
+                            <connections>
+                                <action selector="startStopButtonTapped:" destination="51e-H9-b8Q" id="hog-Pb-SeC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="graphView" destination="rxX-iM-Ovk" id="5PV-We-9u5"/>
+                        <outlet property="waveformView" destination="7Pj-Qc-wPC" id="IlA-oM-2uB"/>
+                        <segue destination="W7y-JM-fLD" kind="push" identifier="Show Results" id="mss-Nu-5cV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zty-eU-nPc" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-103.125" y="-90.845070422535215"/>
+        </scene>
+        <!--Results-->
+        <scene sceneID="zYo-ge-TA0">
+            <objects>
+                <viewController title="Results" id="W7y-JM-fLD" customClass="ResultsViewController" customModule="Shake_Detector" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="m8H-c6-cPM"/>
+                        <viewControllerLayoutGuide type="bottom" id="73m-nT-QkJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hi1-fP-5u3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="LdF-DQ-7GO">
+                                <rect key="frame" x="0.0" y="64" width="320" height="252"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Pj-Qc-wPC" customClass="WaveformView" customModule="Shake_Detector" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="258"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="waveColor">
-                                                <color key="value" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="numberOfWaves">
-                                                <integer key="value" value="16"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rxX-iM-Ovk" customClass="GraphView" customModule="Shake_Detector" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="266" width="320" height="258"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" verticalHuggingPriority="251" text="My Recording" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" id="rYe-cb-NsQ">
+                                        <rect key="frame" x="8" y="0.0" width="304" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" bounces="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" id="ilp-g2-fCC" userLabel="My Measurement Graph View" customClass="GraphView" customModule="Shake_Detector" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="37" width="320" height="215"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="xColor">
                                                 <color key="value" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -64,229 +128,51 @@
                                             <userDefinedRuntimeAttribute type="color" keyPath="gridColor">
                                                 <color key="value" white="0.5" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="separateAxis" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="magnitudeColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </scrollView>
                                 </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="v53-GX-ENE" firstAttribute="trailing" secondItem="2Np-N2-sh7" secondAttribute="trailing" id="8sB-0l-IaT"/>
-                            <constraint firstItem="2Np-N2-sh7" firstAttribute="bottom" secondItem="v53-GX-ENE" secondAttribute="bottom" id="RjT-TP-hNi"/>
-                            <constraint firstItem="2Np-N2-sh7" firstAttribute="leading" secondItem="v53-GX-ENE" secondAttribute="leading" id="lqE-6h-y6w"/>
-                            <constraint firstItem="2Np-N2-sh7" firstAttribute="top" secondItem="v53-GX-ENE" secondAttribute="top" id="yDu-TI-UAw"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="v53-GX-ENE"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Measure" id="qW4-gf-UtR">
-                        <barButtonItem key="rightBarButtonItem" title="Start" id="8vP-aT-8JU">
-                            <connections>
-                                <action selector="startStopButtonTapped:" destination="51e-H9-b8Q" id="hog-Pb-SeC"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="graphView" destination="rxX-iM-Ovk" id="5PV-We-9u5"/>
-                        <outlet property="waveformView" destination="7Pj-Qc-wPC" id="IlA-oM-2uB"/>
-                        <segue destination="W7y-JM-fLD" kind="show" identifier="Show Results" id="mss-Nu-5cV"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Zty-eU-nPc" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-594.375" y="-72.887323943661968"/>
-        </scene>
-        <!--Results-->
-        <scene sceneID="zYo-ge-TA0">
-            <objects>
-                <viewController id="W7y-JM-fLD" customClass="ResultsViewController" customModule="Shake_Detector" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="hi1-fP-5u3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="1472"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mvn-AF-3n8">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="1472"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="kxD-CG-1je">
+                                <rect key="frame" x="0.0" y="316" width="320" height="252"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wqC-Xa-dtc">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="1428"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pbp-fo-ulB">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="37"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" verticalHuggingPriority="251" text="My Recording" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYe-cb-NsQ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="251.5" height="37"/>
-                                                        <color key="backgroundColor" red="0.94896584750000001" green="0.82749855520000004" blue="0.86264413600000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXa-1h-uMQ">
-                                                        <rect key="frame" x="251.5" y="0.0" width="68.5" height="37"/>
-                                                        <color key="backgroundColor" red="0.94896584750000001" green="0.82749855520000004" blue="0.86264413600000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="31"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilp-g2-fCC" userLabel="My Measurement Graph View" customClass="GraphView" customModule="Shake_Detector" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="37" width="320" height="320"/>
-                                                <color key="backgroundColor" red="0.94896584750000001" green="0.82749855520000004" blue="0.86264413600000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="ilp-g2-fCC" secondAttribute="height" multiplier="1:1" id="GDo-rH-91B"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="xColor">
-                                                        <color key="value" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="yColor">
-                                                        <color key="value" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="zColor">
-                                                        <color key="value" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="gridColor">
-                                                        <color key="value" white="0.5" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </scrollView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cuv-hJ-ezg">
-                                                <rect key="frame" x="0.0" y="357" width="320" height="37"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" verticalHuggingPriority="251" text="Scotts Mill" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q4r-PV-xHz">
-                                                        <rect key="frame" x="0.0" y="0.0" width="253" height="37"/>
-                                                        <color key="backgroundColor" red="0.96464174989999996" green="0.8823999763" blue="0.75677520040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="2.38" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jYH-4B-I8x">
-                                                        <rect key="frame" x="253" y="0.0" width="67" height="37"/>
-                                                        <color key="backgroundColor" red="0.96464174989999996" green="0.8823999763" blue="0.75677520040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="31"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJX-a4-U0h" userLabel="Scotts Mill Graph View" customClass="GraphView" customModule="Shake_Detector" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="394" width="320" height="320"/>
-                                                <color key="backgroundColor" red="0.96464174989999996" green="0.8823999763" blue="0.75677520040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="xColor">
-                                                        <color key="value" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="yColor">
-                                                        <color key="value" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="zColor">
-                                                        <color key="value" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="gridColor">
-                                                        <color key="value" white="0.5" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </scrollView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9S3-eN-WNO">
-                                                <rect key="frame" x="0.0" y="714" width="320" height="37"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" verticalHuggingPriority="251" text="Los Angeles" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jwR-iZ-MQj">
-                                                        <rect key="frame" x="0.0" y="0.0" width="255" height="37"/>
-                                                        <color key="backgroundColor" red="0.91756039860000005" green="0.94123035669999999" blue="0.98811715840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="2.67" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkc-tq-GjE">
-                                                        <rect key="frame" x="255" y="0.0" width="65" height="37"/>
-                                                        <color key="backgroundColor" red="0.91756039860000005" green="0.94123035669999999" blue="0.98811715840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="31"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5C-Y1-adv" userLabel="Los Angeles Graph View" customClass="GraphView" customModule="Shake_Detector" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="751" width="320" height="320"/>
-                                                <color key="backgroundColor" red="0.91756039860000005" green="0.94123035669999999" blue="0.98811715840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="xColor">
-                                                        <color key="value" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="yColor">
-                                                        <color key="value" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="zColor">
-                                                        <color key="value" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="gridColor">
-                                                        <color key="value" white="0.5" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </scrollView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JbD-Mc-roh">
-                                                <rect key="frame" x="0.0" y="1071" width="320" height="37"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" verticalHuggingPriority="251" text="Tōhoku" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mEd-KE-fa2">
-                                                        <rect key="frame" x="0.0" y="0.0" width="252" height="37"/>
-                                                        <color key="backgroundColor" red="0.95677596330000003" green="0.96868067980000006" blue="0.92538028959999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="3.44" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HPL-qO-mPJ">
-                                                        <rect key="frame" x="252" y="0.0" width="68" height="37"/>
-                                                        <color key="backgroundColor" red="0.95677596330000003" green="0.96868067980000006" blue="0.92538028959999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="31"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vuV-Tq-7cN" userLabel="Tōhoku Graph View" customClass="GraphView" customModule="Shake_Detector" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="1108" width="320" height="320"/>
-                                                <color key="backgroundColor" red="0.95677596330000003" green="0.96868067980000006" blue="0.92538028959999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="xColor">
-                                                        <color key="value" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="yColor">
-                                                        <color key="value" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="zColor">
-                                                        <color key="value" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="gridColor">
-                                                        <color key="value" white="0.5" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </scrollView>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <constraints>
-                                            <constraint firstItem="ilp-g2-fCC" firstAttribute="height" secondItem="z5C-Y1-adv" secondAttribute="height" id="6P9-mG-OKj"/>
-                                            <constraint firstItem="ilp-g2-fCC" firstAttribute="height" secondItem="AJX-a4-U0h" secondAttribute="height" id="VHR-FN-FaD"/>
-                                            <constraint firstItem="ilp-g2-fCC" firstAttribute="height" secondItem="vuV-Tq-7cN" secondAttribute="height" id="l9S-at-SQ8"/>
-                                        </constraints>
-                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" verticalHuggingPriority="251" text="Match" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" id="q4r-PV-xHz">
+                                        <rect key="frame" x="8" y="1" width="304" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" bounces="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" id="AJX-a4-U0h" userLabel="Match Graph View" customClass="GraphView" customModule="Shake_Detector" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="38" width="320" height="214"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="xColor">
+                                                <color key="value" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="yColor">
+                                                <color key="value" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="zColor">
+                                                <color key="value" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="gridColor">
+                                                <color key="value" white="0.5" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="magnitudeColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </scrollView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="wqC-Xa-dtc" firstAttribute="trailing" secondItem="Mvn-AF-3n8" secondAttribute="trailing" id="4WU-U1-TtB"/>
-                                    <constraint firstItem="wqC-Xa-dtc" firstAttribute="bottom" secondItem="Mvn-AF-3n8" secondAttribute="bottom" id="EgC-V0-NaP"/>
-                                    <constraint firstItem="wqC-Xa-dtc" firstAttribute="leading" secondItem="Mvn-AF-3n8" secondAttribute="leading" id="WbO-NW-r9f"/>
-                                    <constraint firstItem="wqC-Xa-dtc" firstAttribute="top" secondItem="Mvn-AF-3n8" secondAttribute="top" id="jFg-aB-fvq"/>
-                                    <constraint firstItem="wqC-Xa-dtc" firstAttribute="width" secondItem="Mvn-AF-3n8" secondAttribute="width" id="q80-yZ-tcq"/>
-                                </constraints>
-                            </scrollView>
+                                <color key="backgroundColor" red="0.91756039860000005" green="0.94123035669999999" blue="0.98811715840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="Mvn-AF-3n8" firstAttribute="trailing" secondItem="hi1-fP-5u3" secondAttribute="trailing" id="5V1-h8-GUY"/>
-                            <constraint firstItem="Mvn-AF-3n8" firstAttribute="top" secondItem="hi1-fP-5u3" secondAttribute="top" id="OSH-Cx-wMw"/>
-                            <constraint firstItem="Mvn-AF-3n8" firstAttribute="leading" secondItem="hi1-fP-5u3" secondAttribute="leading" id="hTt-9P-7ab"/>
-                            <constraint firstItem="Mvn-AF-3n8" firstAttribute="bottom" secondItem="hi1-fP-5u3" secondAttribute="bottom" id="jxq-fg-M6Q"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="Dj6-qk-fcu"/>
                     </view>
                     <navigationItem key="navigationItem" title="Results" id="c2M-2V-Rln">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="vVr-T2-jpf">
@@ -295,18 +181,15 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <size key="freeformSize" width="320" height="1472"/>
                     <connections>
-                        <outlet property="losAngelesGraphView" destination="z5C-Y1-adv" id="SeX-FV-Jz6"/>
-                        <outlet property="magnitudeLabel" destination="WXa-1h-uMQ" id="vBs-UW-JLx"/>
+                        <outlet property="matchGraphView" destination="AJX-a4-U0h" id="Aza-cS-VjR"/>
+                        <outlet property="matchLabel" destination="q4r-PV-xHz" id="eSo-el-QCo"/>
                         <outlet property="resultGraphView" destination="ilp-g2-fCC" id="BOM-ih-sEH"/>
-                        <outlet property="scottsMillGraphView" destination="AJX-a4-U0h" id="2or-Km-2IL"/>
-                        <outlet property="tohokuGraphView" destination="vuV-Tq-7cN" id="LbQ-wr-0lu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vfS-bR-ijn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="201" y="405"/>
+            <point key="canvasLocation" x="620.625" y="-90.845070422535215"/>
         </scene>
     </scenes>
 </document>

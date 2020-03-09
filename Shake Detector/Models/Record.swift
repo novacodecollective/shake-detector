@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Record: Codable {
+struct Record: Equatable {
     let time: TimeInterval
     let x: Double
     let y: Double

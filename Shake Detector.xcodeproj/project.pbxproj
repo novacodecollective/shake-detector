@@ -16,18 +16,16 @@
 		970E254023F8F9B300B23454 /* GraphSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970E253C23F8F9B300B23454 /* GraphSegment.swift */; };
 		970E254123F8F9B300B23454 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970E253D23F8F9B300B23454 /* GraphView.swift */; };
 		970E254223F8F9B300B23454 /* CGContext+GraphLines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970E253E23F8F9B300B23454 /* CGContext+GraphLines.swift */; };
-		974A5904240B37500084711F /* RecoringMatchingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974A5903240B37500084711F /* RecoringMatchingTests.swift */; };
-		974A590D240B37C00084711F /* Los Angeles Test.csv in Resources */ = {isa = PBXBuildFile; fileRef = 974A590B240B37C00084711F /* Los Angeles Test.csv */; };
-		974A590E240B37C00084711F /* Tohoku Test.csv in Resources */ = {isa = PBXBuildFile; fileRef = 974A590C240B37C00084711F /* Tohoku Test.csv */; };
+		974A5904240B37500084711F /* RecordingClassifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974A5903240B37500084711F /* RecordingClassifierTests.swift */; };
 		974A5911240B39010084711F /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974A5910240B39010084711F /* Recording.swift */; };
-		974A5917240B39E00084711F /* RecordingMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974A5916240B39E00084711F /* RecordingMatcher.swift */; };
+		974A5917240B39E00084711F /* RecordingClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974A5916240B39E00084711F /* RecordingClassifier.swift */; };
 		974A591A240B5AF20084711F /* RecordingFingerprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974A5919240B5AF20084711F /* RecordingFingerprint.swift */; };
 		974A591C240B5B4E0084711F /* Array+Chunking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974A591B240B5B4E0084711F /* Array+Chunking.swift */; };
+		9759BB9F24146286009AAA07 /* Los Angeles in Resources */ = {isa = PBXBuildFile; fileRef = 9759BB9C24146286009AAA07 /* Los Angeles */; };
+		9759BBA024146286009AAA07 /* Scotts Mill in Resources */ = {isa = PBXBuildFile; fileRef = 9759BB9D24146286009AAA07 /* Scotts Mill */; };
+		9759BBA124146286009AAA07 /* Tohoku in Resources */ = {isa = PBXBuildFile; fileRef = 9759BB9E24146286009AAA07 /* Tohoku */; };
 		977763B22403A94700B179CB /* FFT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977763B12403A94700B179CB /* FFT.swift */; };
 		977763B42403B03100B179CB /* WaveformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977763B32403B03100B179CB /* WaveformView.swift */; };
-		97EB99F923FB68E900E8A3E2 /* Tohoku.csv in Resources */ = {isa = PBXBuildFile; fileRef = 97EB99F723FB68E900E8A3E2 /* Tohoku.csv */; };
-		97EB99FD23FB68EE00E8A3E2 /* Los Angeles.csv in Resources */ = {isa = PBXBuildFile; fileRef = 97EB99FA23FB68EE00E8A3E2 /* Los Angeles.csv */; };
-		97EB99FF23FB68EE00E8A3E2 /* Scott's Mill.csv in Resources */ = {isa = PBXBuildFile; fileRef = 97EB99FC23FB68EE00E8A3E2 /* Scott's Mill.csv */; };
 		97EB9A0223FB6A4500E8A3E2 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EB9A0123FB6A4500E8A3E2 /* Record.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,38 +53,19 @@
 		970E253E23F8F9B300B23454 /* CGContext+GraphLines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGContext+GraphLines.swift"; sourceTree = "<group>"; };
 		970E254323F8F9EB00B23454 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		974A5901240B37500084711F /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		974A5903240B37500084711F /* RecoringMatchingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoringMatchingTests.swift; sourceTree = "<group>"; };
+		974A5903240B37500084711F /* RecordingClassifierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingClassifierTests.swift; sourceTree = "<group>"; };
 		974A5905240B37500084711F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		974A590B240B37C00084711F /* Los Angeles Test.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Los Angeles Test.csv"; sourceTree = "<group>"; };
-		974A590C240B37C00084711F /* Tohoku Test.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Tohoku Test.csv"; sourceTree = "<group>"; };
 		974A5910240B39010084711F /* Recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
-		974A5916240B39E00084711F /* RecordingMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingMatcher.swift; sourceTree = "<group>"; };
+		974A5916240B39E00084711F /* RecordingClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingClassifier.swift; sourceTree = "<group>"; };
 		974A5919240B5AF20084711F /* RecordingFingerprint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingFingerprint.swift; sourceTree = "<group>"; };
 		974A591B240B5B4E0084711F /* Array+Chunking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Chunking.swift"; sourceTree = "<group>"; };
+		9759BB9C24146286009AAA07 /* Los Angeles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Los Angeles"; sourceTree = "<group>"; };
+		9759BB9D24146286009AAA07 /* Scotts Mill */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Scotts Mill"; sourceTree = "<group>"; };
+		9759BB9E24146286009AAA07 /* Tohoku */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Tohoku; sourceTree = "<group>"; };
 		977763B12403A94700B179CB /* FFT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFT.swift; sourceTree = "<group>"; };
 		977763B32403B03100B179CB /* WaveformView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveformView.swift; sourceTree = "<group>"; };
-		97EB99F723FB68E900E8A3E2 /* Tohoku.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Tohoku.csv; sourceTree = "<group>"; };
-		97EB99FA23FB68EE00E8A3E2 /* Los Angeles.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Los Angeles.csv"; sourceTree = "<group>"; };
-		97EB99FC23FB68EE00E8A3E2 /* Scott's Mill.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Scott's Mill.csv"; sourceTree = "<group>"; };
 		97EB9A0123FB6A4500E8A3E2 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		970E251C23F8DC1F00B23454 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		974A58FE240B37500084711F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		970E251623F8DC1F00B23454 = {
@@ -148,19 +127,9 @@
 			isa = PBXGroup;
 			children = (
 				974A5905240B37500084711F /* Info.plist */,
-				974A590F240B37C60084711F /* Test Recordings */,
-				974A5903240B37500084711F /* RecoringMatchingTests.swift */,
+				974A5903240B37500084711F /* RecordingClassifierTests.swift */,
 			);
 			path = Tests;
-			sourceTree = "<group>";
-		};
-		974A590F240B37C60084711F /* Test Recordings */ = {
-			isa = PBXGroup;
-			children = (
-				974A590B240B37C00084711F /* Los Angeles Test.csv */,
-				974A590C240B37C00084711F /* Tohoku Test.csv */,
-			);
-			path = "Test Recordings";
 			sourceTree = "<group>";
 		};
 		974A5918240B4B8F0084711F /* Math */ = {
@@ -172,13 +141,21 @@
 			path = Math;
 			sourceTree = "<group>";
 		};
+		9759BB9A2414620B009AAA07 /* Recordings */ = {
+			isa = PBXGroup;
+			children = (
+				9759BB9C24146286009AAA07 /* Los Angeles */,
+				9759BB9D24146286009AAA07 /* Scotts Mill */,
+				9759BB9E24146286009AAA07 /* Tohoku */,
+			);
+			path = Recordings;
+			sourceTree = "<group>";
+		};
 		97EB99F523FB68C200E8A3E2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				970E252B23F8DC2100B23454 /* Assets.xcassets */,
-				97EB99FA23FB68EE00E8A3E2 /* Los Angeles.csv */,
-				97EB99FC23FB68EE00E8A3E2 /* Scott's Mill.csv */,
-				97EB99F723FB68E900E8A3E2 /* Tohoku.csv */,
+				9759BB9A2414620B009AAA07 /* Recordings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -188,8 +165,8 @@
 			children = (
 				97EB9A0123FB6A4500E8A3E2 /* Record.swift */,
 				974A5910240B39010084711F /* Recording.swift */,
+				974A5916240B39E00084711F /* RecordingClassifier.swift */,
 				974A5919240B5AF20084711F /* RecordingFingerprint.swift */,
-				974A5916240B39E00084711F /* RecordingMatcher.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -202,7 +179,6 @@
 			buildConfigurationList = 970E253323F8DC2100B23454 /* Build configuration list for PBXNativeTarget "Shake Detector" */;
 			buildPhases = (
 				970E251B23F8DC1F00B23454 /* Sources */,
-				970E251C23F8DC1F00B23454 /* Frameworks */,
 				970E251D23F8DC1F00B23454 /* Resources */,
 			);
 			buildRules = (
@@ -219,7 +195,6 @@
 			buildConfigurationList = 974A590A240B37500084711F /* Build configuration list for PBXNativeTarget "Tests" */;
 			buildPhases = (
 				974A58FD240B37500084711F /* Sources */,
-				974A58FE240B37500084711F /* Frameworks */,
 				974A58FF240B37500084711F /* Resources */,
 			);
 			buildRules = (
@@ -275,11 +250,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97EB99F923FB68E900E8A3E2 /* Tohoku.csv in Resources */,
+				9759BBA024146286009AAA07 /* Scotts Mill in Resources */,
 				970E252F23F8DC2100B23454 /* LaunchScreen.storyboard in Resources */,
+				9759BB9F24146286009AAA07 /* Los Angeles in Resources */,
+				9759BBA124146286009AAA07 /* Tohoku in Resources */,
 				970E252C23F8DC2100B23454 /* Assets.xcassets in Resources */,
-				97EB99FD23FB68EE00E8A3E2 /* Los Angeles.csv in Resources */,
-				97EB99FF23FB68EE00E8A3E2 /* Scott's Mill.csv in Resources */,
 				970E252A23F8DC1F00B23454 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,8 +263,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				974A590D240B37C00084711F /* Los Angeles Test.csv in Resources */,
-				974A590E240B37C00084711F /* Tohoku Test.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,7 +275,7 @@
 			files = (
 				970E252323F8DC1F00B23454 /* AppDelegate.swift in Sources */,
 				97EB9A0223FB6A4500E8A3E2 /* Record.swift in Sources */,
-				974A5917240B39E00084711F /* RecordingMatcher.swift in Sources */,
+				974A5917240B39E00084711F /* RecordingClassifier.swift in Sources */,
 				977763B42403B03100B179CB /* WaveformView.swift in Sources */,
 				970E254223F8F9B300B23454 /* CGContext+GraphLines.swift in Sources */,
 				970E254023F8F9B300B23454 /* GraphSegment.swift in Sources */,
@@ -320,7 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				974A5904240B37500084711F /* RecoringMatchingTests.swift in Sources */,
+				974A5904240B37500084711F /* RecordingClassifierTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +361,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -408,11 +382,14 @@
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MARKETING_VERSION = 1.0;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -450,6 +427,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -464,11 +442,14 @@
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MARKETING_VERSION = 1.0;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
@@ -485,8 +466,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.NovaCodeCollective.Shake-Detector";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -503,8 +482,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.NovaCodeCollective.Shake-Detector";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -512,23 +489,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = US4HU94M7E;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				PRODUCT_BUNDLE_IDENTIFIER = org.NovaCodeCollective.Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Shake Detector.app/Shake Detector";
 			};
 			name = Debug;
@@ -537,23 +506,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = US4HU94M7E;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = org.NovaCodeCollective.Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Shake Detector.app/Shake Detector";
 			};
 			name = Release;

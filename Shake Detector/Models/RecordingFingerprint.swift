@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct RecordingFingerprint {
-    private static let frequencyRanges: [Int] = [1, 5, 10, 15, 20]
+struct RecordingFingerprint: Equatable {
+    private static let frequencyRanges: [Int] = [0, 5, 10, 15, 20]
 
     let frequencies: [[Double]]
     let hashes: [Int]
@@ -19,7 +19,6 @@ struct RecordingFingerprint {
         let frequencyRanges = RecordingFingerprint.frequencyRanges
 
         frequencies = recording
-            .trimmed()
             .magnitudes
             .chunked(into: chunkSize)
             .map { fft($0) }
@@ -29,12 +28,7 @@ struct RecordingFingerprint {
         var highscores: [[Double]] = (0..<frequencies.count).map { _ in [Double](repeating: 0, count: frequencyRanges.count) }
 
         for (chunkIndex, chunk) in frequencies.enumerated() {
-            for frequency in (1...20) {
-                guard frequency < chunk.count else {
-                    break
-                }
-
-                let magnitude = chunk[frequency] * 10
+            for (frequency, magnitude) in chunk.enumerated() {
                 let index = RecordingFingerprint.frequencyIndex(frequency: frequency)
 
                 if magnitude > highscores[chunkIndex][index] {

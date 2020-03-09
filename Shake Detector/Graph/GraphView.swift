@@ -15,7 +15,7 @@ class GraphView: UIScrollView {
 
     private var segments = [GraphSegment]()
     private var currentSegment: GraphSegment? { segments.last }
-    private var valueRanges = [-4.0...4.0, -4.0...4.0, -4.0...4.0]
+    private var valueRanges = [-1.0...1.0, -1.0...1.0, -1.0...1.0]
 
     @IBInspectable var xColor: UIColor = UIColor.red
     @IBInspectable var yColor: UIColor = UIColor.green
@@ -54,6 +54,8 @@ class GraphView: UIScrollView {
 
     override func draw(_ rect: CGRect) {
         guard let context = UIGraphicsGetCurrentContext() else { return }
+
+        context.clear(rect)
 
         // Fill the background.
         if let backgroundColor = backgroundColor?.cgColor {
